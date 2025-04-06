@@ -3,25 +3,26 @@
     internal class Program
     {
 
-        public static List<uint> CountingSort(List<uint> data) 
+        public static List<int> CountingSort(List<int> data) 
         {
-            uint maxVal = data.Max<uint>();
-            uint[] buckets = new uint[maxVal + 1];
+            int maxVal = data.Max<int>();
+            int minVal = data.Min<int>();
+            int[] buckets = new int[maxVal + 1 - minVal];
 
             for(int i = 0; i < data.Count; i++)
             {
-                buckets[data[i]] += 1;
+                buckets[data[i] - minVal] += 1;
             }
 
-            List<uint> list = new List<uint>();
+            List<int> list = new List<int>();
             for(int i = 0; i < buckets.Length; i++)
             {
                 for(int j = 0; j < buckets[i]; j++)
                 {
-                    list.Add((uint)i);
+                    list.Add((int)i + minVal);
                 }
             }
-
+            
 
 
             return list;
@@ -29,11 +30,11 @@
         } 
         static void Main(string[] args)
         {
-            List<uint> data = new List<uint>();
+            List<int> data = new List<int>();
             Random random = new Random();
             for(int i = 0; i < 100; i++)
             {
-                data.Add((uint)random.Next(0, 100));
+                data.Add(random.Next(-100, 100));
             }
 
             data = CountingSort(data);
