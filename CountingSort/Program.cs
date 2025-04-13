@@ -86,15 +86,14 @@ namespace CountingSort
 
             List<KeyValuePair<int, string>> list = new List<KeyValuePair<int, string>>();
 
-            list.Add(new KeyValuePair<int, string>(0, "apple"));
+            list.Add(new KeyValuePair<int, string>(4, "apple"));
             list.Add(new KeyValuePair<int, string>(1, "banana"));
-            list.Add(new KeyValuePair<int, string>(2, "cat"));
-            list.Add(new KeyValuePair<int, string>(3, "dog"));
-            list.Add(new KeyValuePair<int, string>(4, "elephant"));
-            list.Add(new KeyValuePair<int, string>(5, "fog"));
-            list.Add(new KeyValuePair<int, string>(6, "gorilla"));
-            Random random = new Random();
-            list = list.OrderBy(x => random.Next()).ToList();
+            list.Add(new KeyValuePair<int, string>(3, "cat"));
+            list.Add(new KeyValuePair<int, string>(6, "dog"));
+            list.Add(new KeyValuePair<int, string>(5, "elephant"));
+            list.Add(new KeyValuePair<int, string>(2, "fog"));
+            list.Add(new KeyValuePair<int, string>(0, "gorilla"));
+
 
             List<KeyValuePair<int, string>>[] sortedBuckets = PigeonSort(list);
 
